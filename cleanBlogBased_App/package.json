@@ -1,0 +1,11 @@
+{
+  "name": "cleanblogbased_app",
+  "version": "1.0.0",
+  "description": "This is a Node app based on the Clean Blog bootstrap theme.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fabian Lopez Chamorro",
+  "license": "ISC"
+}
