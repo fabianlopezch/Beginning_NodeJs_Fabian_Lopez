@@ -7,3 +7,9 @@ app.listen(3000, () => {
 app.get('/about', (request, response) => {
     response.end('About page');
 });
+
+app.get('/', (req, res) => {
+    res.json({
+        name: 'Fabian Lopez'
+    });
+});
