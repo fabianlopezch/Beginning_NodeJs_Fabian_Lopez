@@ -4,6 +4,9 @@ const express = require('express');
 const app = new express();
 const PORT = 4000;
 const ejs = require('ejs');
+const mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost/my_database',{useNewUrlParser:true}); // Connecting to MongoDB from Node
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
