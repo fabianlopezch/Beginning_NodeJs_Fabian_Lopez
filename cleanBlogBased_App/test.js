@@ -45,3 +45,10 @@ let id = "638ec4f80b716d1a77b127bf";
 BlogPost.findById(id, (error, blogpost) => {
     console.log(error, blogpost);
 });
+
+// Updating a record by Id
+BlogPost.findByIdAndUpdate(id, {
+    title: "Update title"
+}, (error, blogpost) => {
+    console.log(error, blogpost);
+});
