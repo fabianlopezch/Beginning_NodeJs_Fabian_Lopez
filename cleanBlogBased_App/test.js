@@ -52,3 +52,8 @@ BlogPost.findByIdAndUpdate(id, {
 }, (error, blogpost) => {
     console.log(error, blogpost);
 });
+
+// Deleting a single record
+BlogPost.findByIdAndDelete(id, (error, blogpost) => {
+    console.log(error, blogpost);
+});
