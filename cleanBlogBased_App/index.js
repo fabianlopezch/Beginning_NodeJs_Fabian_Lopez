@@ -39,11 +39,10 @@ app.get('/posts/new', (req, res) => {
     res.render('create');
 });
 
-app.post('/posts/store', (req, res) => {
+app.post('/posts/store', async (req, res) => {
     // console.log(req.body); // Print in the console log the entered values in the form
     
     // model creates a new document with browser data
-    BlogPost.create(req.body, (error, blogpost) => {
-        res.redirect('/');
-    });
+    await BlogPost.create(req.body);
+    res.redirect('/');
 });
