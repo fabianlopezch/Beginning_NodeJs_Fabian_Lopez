@@ -6,6 +6,7 @@ const PORT = 4000;
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const BlogPost = require('./models/BlogPost');
 
 mongoose.connect('mongodb://localhost/my_database',{useNewUrlParser:true}); // Connecting to MongoDB from Node
 
@@ -39,6 +40,10 @@ app.get('/posts/new', (req, res) => {
 });
 
 app.post('/posts/store', (req, res) => {
-    console.log(req.body);
-    res.redirect('/');
+    // console.log(req.body); // Print in the console log the entered values in the form
+    
+    // model creates a new document with browser data
+    BlogPost.create(req.body, (error, blogpost) => {
+        res.redirect('/');
+    });
 });
