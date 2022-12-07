@@ -24,7 +24,7 @@ app.get('/', async (req, res) => {
     res.render('index', {
         blogposts: blogposts // Since key and value are the same we could shorten to blogposts
     });
-    console.log(blogposts);
+    // console.log(blogposts);
 });
 
 app.get('/about', (req, res) => {
