@@ -19,8 +19,12 @@ app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
 });
 
-app.get('/', (req, res) => {
-    res.render('index');
+app.get('/', async (req, res) => {
+    const blogposts = await BlogPost.find({});
+    res.render('index', {
+        blogposts: blogposts // Since key and value are the same we could shorten to blogposts
+    });
+    console.log(blogposts);
 });
 
 app.get('/about', (req, res) => {
