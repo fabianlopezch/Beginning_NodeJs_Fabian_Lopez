@@ -36,7 +36,7 @@ app.get('/contact', (req, res) => {
 });
 
 app.get('/post/:id', async (req, res) => {
-    const blogpost = await BlogPost.findById(req.params,id);
+    const blogpost = await BlogPost.findById(req.params.id);
     res.render('post', {
         blogpost
     });
