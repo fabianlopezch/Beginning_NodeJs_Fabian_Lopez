@@ -59,9 +59,8 @@ app.get('/post/:id', async (req, res) => {
     });
 });
 
-app.get('/posts/new', (req, res) => {
-    res.render('create');
-});
+const newPostController = require('./controllers/newPost');
+app.get('/posts/new', newPostController);
 
 app.post('/posts/store', (req, res) => {
     // console.log(req.body); // Print in the console log the entered values in the form
