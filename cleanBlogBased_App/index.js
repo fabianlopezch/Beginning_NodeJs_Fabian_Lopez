@@ -10,6 +10,11 @@ const BlogPost = require('./models/BlogPost');
 const fileUpload = require('express-fileupload');
 const path = require('path');
 
+const customMiddleWare = (req, res, next) => {
+    console.log('Custom middleware called');
+    next();
+};
+
 mongoose.connect('mongodb://localhost/my_database',{useNewUrlParser:true}); // Connecting to MongoDB from Node
 
 app.set('view engine', 'ejs');
@@ -17,6 +22,7 @@ app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
+app.use(customMiddleWare);
 
 app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
