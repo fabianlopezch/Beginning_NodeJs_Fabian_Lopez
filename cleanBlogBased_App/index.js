@@ -15,6 +15,13 @@ const customMiddleWare = (req, res, next) => {
     next();
 };
 
+const validateMiddleWare = (req, res, next) => {
+    if (req.files == null || req.body.title == null || req.body.body == null){
+        return res.redirect('/posts/new');
+    }
+    next;
+}
+
 mongoose.connect('mongodb://localhost/my_database',{useNewUrlParser:true}); // Connecting to MongoDB from Node
 
 app.set('view engine', 'ejs');
@@ -23,6 +30,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(fileUpload());
 app.use(customMiddleWare);
+app.use('/posts/store', validateMiddleWare);
 
 app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
