@@ -56,7 +56,10 @@ app.post('/posts/store', (req, res) => {
 
     image.mv(path.resolve(__dirname, 'public/img', image.name), async (error) => {
         // model creates a new document with browser data
-        await BlogPost.create(req.body);
+        await BlogPost.create({
+            ...req.body,
+            image: '/img/' + image.name
+        });
         res.redirect('/');
     });
 });
