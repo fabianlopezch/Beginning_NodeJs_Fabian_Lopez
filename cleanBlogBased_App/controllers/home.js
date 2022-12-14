@@ -1,4 +1,4 @@
-// This controller handdles the requests requiring the home page
+// This controller handles the requests requiring the home page
 
 const BlogPost = require('../models/BlogPost');
 

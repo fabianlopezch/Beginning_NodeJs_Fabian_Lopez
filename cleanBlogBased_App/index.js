@@ -39,12 +39,8 @@ app.listen(PORT, () => {
 const homeController = require('./controllers/home');
 app.get('/', homeController);
 
-app.get('/post/:id', async (req, res) => {
-    const blogpost = await BlogPost.findById(req.params.id);
-    res.render('post', {
-        blogpost
-    });
-});
+const getPostController = require('./controllers/getPost');
+app.get('/post/:id', getPostController);
 
 const newPostController = require('./controllers/newPost');
 app.get('/posts/new', newPostController);
