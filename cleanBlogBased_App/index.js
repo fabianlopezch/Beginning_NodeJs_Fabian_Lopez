@@ -62,17 +62,5 @@ app.get('/post/:id', async (req, res) => {
 const newPostController = require('./controllers/newPost');
 app.get('/posts/new', newPostController);
 
-app.post('/posts/store', (req, res) => {
-    // console.log(req.body); // Print in the console log the entered values in the form
-
-    let image = req.files.image;
-
-    image.mv(path.resolve(__dirname, 'public/img', image.name), async (error) => {
-        // model creates a new document with browser data
-        await BlogPost.create({
-            ...req.body,
-            image: '/img/' + image.name
-        });
-        res.redirect('/');
-    });
-});
+const storePostController = require('./controllers/storePost');
+app.post('/posts/store', storePostController);
