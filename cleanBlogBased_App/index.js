@@ -8,17 +8,9 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const fileUpload = require('express-fileupload');
 
-const customMiddleWare = (req, res, next) => {
-    console.log('Custom middleware called');
-    next();
-};
+const customMiddleWare = require('./middleware/customMiddleware');
 
-const validateMiddleWare = (req, res, next) => {
-    if (req.files == null || req.body.title == null || req.body.body == null){
-        return res.redirect('/posts/new');
-    }
-    next();
-}
+const validateMiddleWare = require('./middleware/validationMiddleware');
 
 mongoose.connect('mongodb://localhost/my_database',{useNewUrlParser:true}); // Connecting to MongoDB from Node
 
