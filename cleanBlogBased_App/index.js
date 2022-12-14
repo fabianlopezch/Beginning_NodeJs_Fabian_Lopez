@@ -36,13 +36,8 @@ app.listen(PORT, () => {
     console.log(`App listening on PORT ${PORT}`);
 });
 
-app.get('/', async (req, res) => {
-    const blogposts = await BlogPost.find({});
-    res.render('index', {
-        blogposts: blogposts // Since key and value are the same we could shorten to blogposts
-    });
-    // console.log(blogposts);
-});
+const homeController = require('./controllers/home');
+app.get('/', homeController);
 
 app.get('/post/:id', async (req, res) => {
     const blogpost = await BlogPost.findById(req.params.id);
