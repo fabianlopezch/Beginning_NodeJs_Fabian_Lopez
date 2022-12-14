@@ -6,9 +6,7 @@ const PORT = 4000;
 const ejs = require('ejs');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const BlogPost = require('./models/BlogPost');
 const fileUpload = require('express-fileupload');
-const path = require('path');
 
 const customMiddleWare = (req, res, next) => {
     console.log('Custom middleware called');
